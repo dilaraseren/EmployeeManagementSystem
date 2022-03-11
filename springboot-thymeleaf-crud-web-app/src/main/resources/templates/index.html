@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Employee Management System</title>
+</head>
+<body>
+<div align="center">
+<h1>Employees List</h1>
+    <table>
+        <thead>
+        <tr>
+            <th>Employee First Name</th>
+            <th>Employee Last Name</th>
+            <th>Employee Mail</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="employee:${listEmployees}">
+            <td th:text="${employee.firstName}"></td>
+            <td th:text="${employee.lastName}"></td>
+            <td th:text="${employee.email}"></td>
+
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>
