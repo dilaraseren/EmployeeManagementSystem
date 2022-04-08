@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Employee Management System</title>
@@ -9,14 +9,17 @@
           crossorigin="anonymous">
 </head>
 <body>
-<div align="center">
-<h1>Employees List</h1>
-    <table border="10" class="table table-striped table-responsive-md">
+
+<div class="container my-2">
+
+    <h1>Employees List</h1>
+    <table border="1" class="table table-striped table-responsive-md">
         <thead>
         <tr>
             <th>Employee First Name</th>
             <th>Employee Last Name</th>
             <th>Employee Mail</th>
+            <th>Actions</th>
         </tr>
         </thead>
         <tbody>
@@ -24,9 +27,12 @@
             <td th:text="${employee.firstName}"></td>
             <td th:text="${employee.lastName}"></td>
             <td th:text="${employee.email}"></td>
+            <td> <a th:href="@{/showFormForUpdate/{id}(id=${employee.id})}" class="btn btn-primary"> Update</a></td>
+            <td> <a th:href="@{/deleteEmployee/{id}(id=${employee.id})}" class="btn btn-danger "> Delete</a></td>
         </tr>
         </tbody>
     </table>
+    <a th:href="@{/showNewEmployeeForm}" class="btn btn-primary btn-sm mb-3"> Add Employee </a>
 </div>
 </body>
 </html>
